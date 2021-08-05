@@ -1,10 +1,14 @@
 'use strict';
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const registerRoutes = require('./routes');
 
+app.use(cors());
+app.use(express.static('public'));
+
 // server config
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
 // register routes
 registerRoutes(app);

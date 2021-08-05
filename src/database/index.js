@@ -23,7 +23,7 @@ const getUsers = () => {
 
 const getListOfAgesOfUsersWith = (item) => {
     const dataAccessMethod = () => {
-        // fill me in :)
+        return _.map(db.usersById, userInfo => userInfo)
     }
     return mockDBCall(dataAccessMethod);
 }
