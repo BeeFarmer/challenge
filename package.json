@@ -6,7 +6,8 @@
   "scripts": {
     "serve": "node ./src/index.js",
     "dev": "cd client && npm start",
-    "start": "concurrently \"npm run serve\" \"npm run dev\""
+    "start": "concurrently \"npm run serve\" \"npm run dev\"",
+    "postinstall": "cd client && npm install"
   },
   "author": "walmex-team",
   "license": "ISC",
