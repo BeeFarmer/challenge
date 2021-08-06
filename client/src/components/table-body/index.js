@@ -1,9 +1,11 @@
 import { memo } from 'react';
 import { Table } from 'react-bootstrap';
 
+import './style.css';
+
 const TableBody = ({ category = [], data = [] }) => {
   return (
-    <div>
+    <div className="table-body">
       <Table>
         <thead>
           <tr>

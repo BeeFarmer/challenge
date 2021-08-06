@@ -1,28 +1,34 @@
-import React, { Component }from 'react';
-import { TableHeader, TableBody } from '../../components';
+import React, { PureComponent }from 'react';
+import axios from 'axios';
 
-class UserTable extends Component {
+import { TableHeader, TableBody } from '../../components';
+import { apiLinks, tableConstants } from '../../config';
+
+const { userTable } = tableConstants;
+
+class UserTable extends PureComponent {
   constructor(props) {
     super(props);
-    this.category = ['Username', 'Age'];
-    this.state = {data: []};
+    this.state = {
+      data: []
+    };
   }
 
   componentDidMount() {
-    fetch('http://localhost:8000/users')
-      .then(res => res.json())
-      .then(data => {
-        this.setState({data: data})
+    axios.get(apiLinks.fetchUsers)
+      .then(({ data }) => {
+        this.setState({ data: data });
       })
+      .catch(err => console.log(err));
   }
 
   render() {
     const { data } = this.state;
-    console.log();
+
     return (
       <div>
-        <TableHeader title="All Users" description="Users and their age" />
-        <TableBody category={this.category} data={data} />
+        <TableHeader title={userTable.title} description={userTable.description} />
+        <TableBody category={userTable.category} data={data} />
       </div>
     );
   }

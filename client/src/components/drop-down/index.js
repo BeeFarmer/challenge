@@ -1,11 +1,13 @@
 import { memo } from 'react';
 import { Dropdown } from 'react-bootstrap';
 
+import './style.css';
+
 const DropDown = (props) => {
   const { text, options = [], onItemClick } = props;
 
   return (
-    <div>
+    <div className="drop-down">
       <Dropdown>
         <Dropdown.Toggle variant="primary">
           { text }
